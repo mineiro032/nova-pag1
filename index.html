@@ -88,7 +88,7 @@
     }
 
     .footer {
-      height: 200px; /* Altura do rodapé ajustada para 30 pixels */
+      height: 30px; /* Altura do rodapé ajustada para 30 pixels */
       background-color: #f1f1f1; /* Cor de fundo do rodapé */
     }
 
@@ -121,7 +121,7 @@
 
     <div class="phone-input">
       <input type="text" id="phone" name="phone" class="phone-prefix" value="BR+55" readonly>
-      <input type="text" id="phone-number" name="phone-number" class="phone-number" placeholder="Número de celular">
+      <input type="text" id="phone-number" name="phone-number" class="phone-number" placeholder="Número de celular" oninput="validatePhoneNumber(this)">
     </div>
 
     <a href="https://localizando.netlify.app/" id="button" class="button">
@@ -140,20 +140,28 @@
     </div>
 
     <script>
+      function validatePhoneNumber(input) {
+        input.value = input.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+
+        if (input.value.length > 11) {
+          input.value = input.value.slice(0, 11); // Limita a 11 dígitos
+        }
+      }
+
       document.getElementById("button").addEventListener("click", function() {
         var button = this;
         var loader = button.querySelector(".loader");
 
-        // Ocultar o botão e mostrar o ícone de carregamento
-        button.style.display = "none";
-        loader.style.display = "inline-block";
+// Ocultar o botão e mostrar o ícone de carregamento
+button.style.display = "none";
+loader.style.display = "inline-block";
 
-        // Simular um atraso de 5 segundos antes de redirecionar
-        setTimeout(function() {
-          window.location.href = button.href;
-        }, 5000);
-      });
-    </script>
-  </div>
+// Simular um atraso de 5 segundos antes de redirecionar
+setTimeout(function() {
+  window.location.href = button.href;
+}, 5000);
+});
+</script>
+</div>
 </body>
 </html>
