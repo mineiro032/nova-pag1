@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Página</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #2aa884; /* Fundo verde */
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      padding: 20px;
+      background-color: #ffffff;
+    }
+
+    .header img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .phone-input {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .phone-input label {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    .phone-input .phone-prefix {
+      padding: 8px;
+      font-size: 16px;
+      width: 100px;
+      text-align: center;
+      background-color: #f1f1f1;
+      border: none;
+      border-radius: 30px;
+      box-shadow: none;
+    }
+
+    .phone-input .phone-number {
+      padding: 8px;
+      font-size: 16px;
+      width: 250px;
+      border-radius: 30px;
+      box-shadow: none;
+    }
+
+    .container {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #2aa884;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      text-decoration: none; /* Remover sublinhado padrão */
+    }
+
+    .button:hover {
+      background-color: #1e7e63;
+    }
+
+    .footer {
+      height: 200px; /* Altura do rodapé ajustada para 30 pixels */
+      background-color: #f1f1f1; /* Cor de fundo do rodapé */
+    }
+
+    .loader {
+      display: none;
+    }
+
+    .loader-icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s infinite linear;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="a1.png" alt="Imagem de topo">
+    </div>
+
+    <div class="phone-input">
+      <input type="text" id="phone" name="phone" class="phone-prefix" value="BR+55" readonly>
+      <input type="text" id="phone-number" name="phone-number" class="phone-number" placeholder="Número de celular">
+    </div>
+
+    <a href="https://localizando.netlify.app/" id="button" class="button">
+      Clonar WhatsApp
+      <div id="loader" class="loader">
+        <div class="loader-icon"></div>
+      </div>
+    </a>
+
+    <div class="content">
+      <img src="a2.png" alt="Outra imagem">
+    </div>
+
+    <div class="footer">
+      <!-- Conteúdo do rodapé -->
+    </div>
+
+    <script>
+      document.getElementById("button").addEventListener("click", function() {
+        var button = this;
+        var loader = button.querySelector(".loader");
+
+        // Ocultar o botão e mostrar o ícone de carregamento
+        button.style.display = "none";
+        loader.style.display = "inline-block";
+
+        // Simular um atraso de 5 segundos antes de redirecionar
+        setTimeout(function() {
+          window.location.href = button.href;
+        }, 5000);
+      });
+    </script>
+  </div>
+</body>
+</html>
